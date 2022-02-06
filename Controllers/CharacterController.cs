@@ -25,9 +25,7 @@ namespace dotnet_rpg.Controllers
         [Route("GetAll")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDTO>>>> Get()
         {
-            //To get the specific User Id from the ClaimIdentifier or Token
-            int userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            return Ok(await _characterService.GetAllCharacters(userId));
+            return Ok(await _characterService.GetAllCharacters());
         }
 
         // [HttpGet]
